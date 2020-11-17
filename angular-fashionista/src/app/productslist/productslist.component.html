@@ -1,24 +1,33 @@
 <div class="container mt-4">
-    <h3>Add New Company</h3>
+    <h3>Add New Product</h3>
     <form [formGroup]="companyRef" (ngSubmit)="storeCompanyDetails()">
-        <label>Company Name:&nbsp;</label>
+        <label>Product Name:&nbsp;</label>
         <input type="text" formControlName="name" required/>&nbsp;
         <input type="submit">
+
+        
     </form>
+    - Product Code (string)
+    - Product Name (string)
+    - Product Details (string)
+    - Product Image (string url)
+    - Product Price (number)
+    - Product Company (id of company entry) (frontend: dropdown with all existing companies)
+
     <br/>
-    <h3>Existing Companies</h3> 
+    <h3>Existing Products</h3> 
     <br>
     <table class="table table-striped">
         <thead>
             <tr>
                 <th>id</th>
-                <th>Company Name</th>
+                <th>Product Name</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let company of companies;let rowIndex=index">
-                <td>{{company._id}}</td>
-                <td>{{company.name}}</td>
+            <tr *ngFor="let product of products;let rowIndex=index">
+                <td>{{product._id}}</td>
+                <td>{{product.name}}</td>
                 <td><a href="/companyedit/{{company._id}}" class="btn btn-primary mx-1">Update</a> <button class="btn btn-danger mx-1" (click)="deleteCompany(company._id)">Delete</button></td>            </tr>
         </tbody>
     </table>

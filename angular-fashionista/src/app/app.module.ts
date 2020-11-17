@@ -9,8 +9,10 @@ import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 
 import { AuthModule } from './auth/auth.module';
-import { ServicesComponent } from './services/services.component';
 import { CompaniesListComponent } from './companies-list/companies-list.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CompanyeditComponent } from './companyedit/companyedit.component';
+import { ProductslistComponent } from './productslist/productslist.component';
 
 @NgModule({
   declarations: [
@@ -18,13 +20,16 @@ import { CompaniesListComponent } from './companies-list/companies-list.componen
     HeaderComponent,
     HomeComponent,
     ProfileComponent,
-    ServicesComponent,
-    CompaniesListComponent
+    CompaniesListComponent,
+    CompanyeditComponent,
+    ProductslistComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AuthModule
+    AuthModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

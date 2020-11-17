@@ -1,14 +1,15 @@
+import { Component, OnInit } from '@angular/core';
 import { CompanyService } from './../services/company.service';
 import { Company } from './../models/company';
-import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
-  selector: 'app-companies-list',
-  templateUrl: './companies-list.component.html',
-  styleUrls: ['./companies-list.component.css']
+  selector: 'app-productslist',
+  templateUrl: './productslist.component.html',
+  styleUrls: ['./productslist.component.css']
 })
-export class CompaniesListComponent implements OnInit {
+export class ProductslistComponent implements OnInit {
+
   companyRef = new FormGroup({
     name:new FormControl()
   });

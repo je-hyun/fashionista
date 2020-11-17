@@ -6,18 +6,24 @@ import { ProfileComponent } from './profile/profile.component';
 import { HomeComponent } from './home/home.component';
 
 import { AuthGuard } from './auth/auth.guard';
-import { ServicesComponent } from './services/services.component';
 import { CompaniesListComponent } from './companies-list/companies-list.component';
+import { FormsModule } from '@angular/forms';
+import { CompanyeditComponent } from './companyedit/companyedit.component';
+import { ProductslistComponent } from './productslist/productslist.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
-  { path: 'services', component: ServicesComponent, canActivate: [AuthGuard] },
-  { path: 'companies-list', component: CompaniesListComponent, canActivate: [AuthGuard] }
+  { path: 'companies-list', component: CompaniesListComponent, canActivate: [AuthGuard] },
+  { path: 'companyedit/:id', component: CompanyeditComponent, canActivate: [AuthGuard]},
+  { path: 'products-list', component: ProductslistComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes),
+    FormsModule
+  ],
   exports: [RouterModule],
   providers: [AuthGuard]
 })
