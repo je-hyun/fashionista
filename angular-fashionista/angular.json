@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-fashionista": {
+    "angularjwtauth": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angular-fashionista",
+            "outputPath": "dist/angularjwtauth",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -24,7 +24,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": []
           },
@@ -62,18 +63,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular-fashionista:build"
+            "browserTarget": "angularjwtauth:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular-fashionista:build:production"
+              "browserTarget": "angularjwtauth:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-fashionista:build"
+            "browserTarget": "angularjwtauth:build"
           }
         },
         "test": {
@@ -110,15 +111,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "angular-fashionista:serve"
+            "devServerTarget": "angularjwtauth:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "angular-fashionista:serve:production"
+              "devServerTarget": "angularjwtauth:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "angular-fashionista"
+  "defaultProject": "angularjwtauth"
 }
