@@ -3,9 +3,6 @@ const bcrypt = require('bcryptjs')
 const Schema = mongoose.Schema
 
 const userSchema = new Schema({
-  isAdmin: {
-    type: Boolean
-  },
   username: {
     type: String,
     min: [4, 'Too short, min 4 characters are required'],

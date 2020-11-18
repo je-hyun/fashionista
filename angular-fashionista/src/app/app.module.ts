@@ -14,6 +14,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CompanyeditComponent } from './companyedit/companyedit.component';
 import { ProductslistComponent } from './productslist/productslist.component';
 import { ProducteditComponent } from './productedit/productedit.component';
+import { ShopComponent } from './shop/shop.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { ProducteditComponent } from './productedit/productedit.component';
     CompanyeditComponent,
     ProductslistComponent,
     ProducteditComponent,
+    ShopComponent,
   ],
   imports: [
     BrowserModule,

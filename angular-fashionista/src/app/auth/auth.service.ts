@@ -54,6 +54,10 @@ export class AuthService {
     return moment().isBefore(moment.unix(this.decodedToken.exp));
   }
 
+  public isAdmin(): boolean {
+    return this.decodedToken.username === "admin";
+  }
+
   public getUsername(): string {
     return this.decodedToken.username;
   }

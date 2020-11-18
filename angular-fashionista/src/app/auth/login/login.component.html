@@ -2,6 +2,9 @@
     <div class="row">
       <div class="col-md-5">
         <h1 class="page-title">Login</h1>
+        <br/>
+        <p><i>Note: the account with username 'admin' is used as the administrative account. If it doesn't yet exist, you must register it through the register route (simply use admin as username).</i></p>
+        <br/>
         <form [formGroup]="loginForm" (ngSubmit) = "login()">
           <div class="form-group">
             <div *ngIf="notify" class="alert alert-success">
@@ -45,6 +48,12 @@
           class="btn btn-warning"
           >Sign In</button>
         </form>
+
+        <br/>
+        Don't have an account?
+        <a routerLink="/auth/register" class="">
+          Register Now!
+        </a>
       </div>
     </div>
 </div>

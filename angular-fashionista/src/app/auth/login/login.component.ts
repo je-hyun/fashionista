@@ -47,7 +47,18 @@ export class LoginComponent implements OnInit {
     this.errors = [];
     this.auth.login(this.loginForm.value)
       .subscribe((token) => {
-        this.router.navigate(['/'], { queryParams: { loggedin: 'success' } });
+
+
+
+        if(this.auth.isAdmin()) {
+          this.router.navigate(['/companies-list'], { queryParams: { loggedin: 'success' } });
+        } else {
+          this.router.navigate(['/'], { queryParams: { loggedin: 'success' } });
+        }
+
+
+
+
        },
         (errorResponse) => {
           this.errors.push(errorResponse.error.error);
