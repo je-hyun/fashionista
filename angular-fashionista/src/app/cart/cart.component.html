@@ -1,3 +1,4 @@
+<div *ngIf="checkingOut==false; else checkoutBlock">
 <h3>Cart Info</h3>
 <table border="1">
     <tr>
@@ -30,4 +31,16 @@
 
 <input type="button" value="checkOut" (click)="checkOut()"/>
 
-{{cartInfo}}
+</div>
+<ng-template #checkoutBlock>
+    <h1>Check Out</h1>
+    <form>
+        Full Name: <input type="text" #fname>
+        <br/>
+        Email: <input type="text" #email>
+        <br/>
+        Address: <input type="text" #address>
+        <br/>
+        <button (click)="checkOutConfirm(fname, email, address)" class="btn btn-primary">Check Out</button>
+    </form>
+</ng-template>
