@@ -11,6 +11,10 @@ import { FormsModule } from '@angular/forms';
 import { CompanyeditComponent } from './companyedit/companyedit.component';
 import { ProductslistComponent } from './productslist/productslist.component';
 import { ProducteditComponent } from './productedit/productedit.component';
+import { ShopComponent } from './shop/shop.component';
+import { CartComponent } from './cart/cart.component';
+
+
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -18,7 +22,9 @@ const routes: Routes = [
   { path: 'companies-list', component: CompaniesListComponent, canActivate: [AuthGuard] },
   { path: 'companyedit/:id', component: CompanyeditComponent, canActivate: [AuthGuard]},
   { path: 'products-list', component: ProductslistComponent, canActivate: [AuthGuard] },
-  { path: 'productedit/:id', component: ProducteditComponent, canActivate: [AuthGuard]}
+  { path: 'productedit/:id', component: ProducteditComponent, canActivate: [AuthGuard]},
+  { path: 'shop', component: ShopComponent, canActivate: [AuthGuard]},
+  { path: 'cart', component: CartComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({

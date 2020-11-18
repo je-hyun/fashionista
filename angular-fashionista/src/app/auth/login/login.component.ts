@@ -53,7 +53,7 @@ export class LoginComponent implements OnInit {
         if(this.auth.isAdmin()) {
           this.router.navigate(['/companies-list'], { queryParams: { loggedin: 'success' } });
         } else {
-          this.router.navigate(['/'], { queryParams: { loggedin: 'success' } });
+          this.router.navigate(['/shop'], { queryParams: { loggedin: 'success' } });
         }
 
 

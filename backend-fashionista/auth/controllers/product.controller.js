@@ -1,4 +1,3 @@
-const Company = require('../models/company.js');
 const Product = require('../models/product.js');
 
 exports.findAll = (req, res) => {
@@ -63,6 +62,7 @@ exports.addProduct = (req, res) => {
 exports.findProductById = (req, res) => {
     Product.findById(req.params.id, (err, product) => {
         if (err) throw err;
+        console.log(product);
         res.send(product);
     })
 };

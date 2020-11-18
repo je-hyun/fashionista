@@ -54,7 +54,7 @@
                 <td>{{product.code}}</td>
                 <td>{{product.name}}</td>
                 <td>{{product.details}}</td>
-                <td><img src="{{product.image}}" alt="{{product.code}}"></td>
+                <td><img src="{{product.image}}" alt="{{product.code}}" width="200" height="100"></td>
                 <td>{{product.price}}</td>
                 <td>{{product.company}}</td>
                 <td><a href="/productedit/{{product._id}}" class="btn btn-primary mx-1">Update</a> <button class="btn btn-danger mx-1" (click)="deleteProduct(product._id)">Delete</button></td>            </tr>
