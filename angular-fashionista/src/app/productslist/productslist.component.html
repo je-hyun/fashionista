@@ -1,12 +1,33 @@
 <div class="container mt-4">
     <h3>Add New Product</h3>
-    <form [formGroup]="companyRef" (ngSubmit)="storeCompanyDetails()">
-        <label>Product Name:&nbsp;</label>
-        <input type="text" formControlName="name" required/>&nbsp;
+    <form [formGroup]="productRef" (ngSubmit)="storeProductDetails()" id="productRef">
+        <label>Code:&nbsp;</label>
+        <input type="text" formControlName="code" required/>&nbsp;<br/>
+        <label>Name:&nbsp;</label>
+        <input type="text" formControlName="name" required/>&nbsp;<br/>
+        <label>Details:&nbsp;</label>
+        <input type="text" formControlName="details" required/>&nbsp;<br/>
+        <label>Image (URL):&nbsp;</label>
+        <input type="text" formControlName="image" required/>&nbsp;<br/>
+        <label>Price:&nbsp;</label>
+        <input type="number" formControlName="price" required/>&nbsp;<br/>
+        <label>Company:&nbsp;</label>
+        <select formControlName="company" required>
+            <option value="{{company._id}}" *ngFor="let company of companies;">{{company.name}}</option>
+        </select>
         <input type="submit">
 
         
     </form>
+
+    code:new FormControl(),<br/>
+    name:new FormControl(),<br/>
+    details:new FormControl(),<br/>
+    image:new FormControl(),<br/>
+    price:new FormControl(),<br/>
+    company:new FormControl()<br/>
+    <br/>
+
     - Product Code (string)
     - Product Name (string)
     - Product Details (string)
@@ -20,15 +41,23 @@
     <table class="table table-striped">
         <thead>
             <tr>
-                <th>id</th>
-                <th>Product Name</th>
+                <th>code</th>
+                <th>name</th>
+                <th>details</th>
+                <th>image</th>
+                <th>price</th>
+                <th>company</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let product of products;let rowIndex=index">
-                <td>{{product._id}}</td>
+            <tr *ngFor="let product of products;">
+                <td>{{product.code}}</td>
                 <td>{{product.name}}</td>
-                <td><a href="/companyedit/{{company._id}}" class="btn btn-primary mx-1">Update</a> <button class="btn btn-danger mx-1" (click)="deleteCompany(company._id)">Delete</button></td>            </tr>
+                <td>{{product.details}}</td>
+                <td><img src="{{product.image}}" alt="{{product.code}}"></td>
+                <td>{{product.price}}</td>
+                <td>{{product.company}}</td>
+                <td><a href="/productedit/{{product._id}}" class="btn btn-primary mx-1">Update</a> <button class="btn btn-danger mx-1" (click)="deleteProduct(product._id)">Delete</button></td>            </tr>
         </tbody>
     </table>
 </div>

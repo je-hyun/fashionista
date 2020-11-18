@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CompanyService } from './../services/company.service';
+import { ProductService } from './../services/product.service';
 import { Company } from './../models/company';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Product } from '../models/product';
 
 @Component({
   selector: 'app-productslist',
@@ -10,37 +12,57 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class ProductslistComponent implements OnInit {
 
-  companyRef = new FormGroup({
-    name:new FormControl()
+  productRef = new FormGroup({
+    code:new FormControl(),
+    name:new FormControl(),
+    details:new FormControl(),
+    image:new FormControl(),
+    price:new FormControl(),
+    company:new FormControl()
   });
   companies: Company[];
+  products: Product[];
 
-  constructor(private companyService: CompanyService) { }
+  constructor(private companyService: CompanyService, private productService: ProductService) { }
 
-
-  updateCompanyTable() {
+  getCompanies() {
     this.companyService.getCompanies().subscribe(result => {
       this.companies = result;
-      console.log(this.companies);
     })
   }
+
+  updateProductTable() {
+    this.productService.getProducts().subscribe(result => {
+      this.products = result;
+    })
+  }
+
+
   ngOnInit(): void {
-    this.updateCompanyTable()
+    this.updateProductTable();
+    this.getCompanies();
   }
-
-  deleteCompany(idToDelete): void {
-    this.companyService.deleteCompanyById(idToDelete).
+  
+  deleteProduct(idToDelete): void {
+    this.productService.deleteProductById(idToDelete).
     subscribe(
-      result=>{this.updateCompanyTable()}
-    )
-  }
-
-  storeCompanyDetails(): void {
-    this.companyService.addCompany(this.companyRef.value).
-    subscribe(
-      result => {this.updateCompanyTable()}
+      result=>{this.updateProductTable()}
     )
 
-    
+  }
+
+  storeProductDetails(): void {    
+    console.log(`Company ID: ${this.productRef.value.company}`);
+
+    this.companyService.getCompanyById(this.productRef.value.company).subscribe(
+      result => {
+        this.productRef.value.company = result
+
+        this.productService.addProduct(this.productRef.value).
+        subscribe(
+          result => {this.updateProductTable()}
+        )
+      }
+    )
   }
 }
